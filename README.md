@@ -31,37 +31,6 @@ The architecture diagram above (in `architecture/min_rag_arch.png`) shows the hi
 - `chroma_db/` — Persisted Chroma database (created after indexing).
 - `data/` — Place your PDF files here for ingestion.
 
-## Quickstart
-
-1. Create and activate a Python virtual environment (recommended Python 3.11/3.12):
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-```
-
-2. Install core dependencies (use the notebook `pip` cells or run manually):
-
-```bash
-pip install ollama chromadb pymupdf langchain-text-splitters
-pip install -U langchain-ollama langchain-chroma langchain_community
-```
-
-3. Start the Ollama server locally and ensure the model you reference (e.g., `llama3`) is available:
-
-```bash
-# In a separate terminal
-ollama serve
-# (Ensure models are downloaded/available locally per Ollama docs)
-```
-
-4. Put your PDFs in the `data/` folder and the ingestion cell will index them.
-
-5. Open and run `rag_workflow.ipynb` in JupyterLab / Jupyter Notebook. Run cells sequentially:
-   - Setup & connectivity checks
-   - Part 1: Ingestion — build or load the Chroma DB
-   - Part 2: Retrieval & QA — query the DB with `ask_rag(...)`
-
 ## Prerequisites — Ollama setup
 
 Before running the notebook, ensure the Ollama local inference service is installed and a model is available.
@@ -95,6 +64,37 @@ Troubleshooting tips:
 - Allow sufficient disk space for model downloads (models can be several GBs).
 - If the server fails to start, check logs in the terminal where `ollama serve` ran and verify any port/firewall settings.
 - See Ollama docs for platform-specific installers or troubleshooting: https://ollama.ai/docs
+
+## Quickstart
+
+1. Create and activate a Python virtual environment (recommended Python 3.11/3.12):
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+2. Install core dependencies (use the notebook `pip` cells or run manually):
+
+```bash
+pip install ollama chromadb pymupdf langchain-text-splitters
+pip install -U langchain-ollama langchain-chroma langchain_community
+```
+
+3. Start the Ollama server locally and ensure the model you reference (e.g., `llama3`) is available:
+
+```bash
+# In a separate terminal
+ollama serve
+# (Ensure models are downloaded/available locally per Ollama docs)
+```
+
+4. Put your PDFs in the `data/` folder and the ingestion cell will index them.
+
+5. Open and run `rag_workflow.ipynb` in JupyterLab / Jupyter Notebook. Run cells sequentially:
+   - Setup & connectivity checks
+   - Part 1: Ingestion — build or load the Chroma DB
+   - Part 2: Retrieval & QA — query the DB with `ask_rag(...)`
 
 ## Key Notebook Highlights
 
