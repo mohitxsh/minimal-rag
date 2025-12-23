@@ -1,0 +1,9 @@
+# Requirements for the Local RAG notebook
+ollama
+chromadb
+pymupdf
+langchain-text-splitters
+langchain-ollama
+langchain-chroma
+langchain_community
+langchain-core
