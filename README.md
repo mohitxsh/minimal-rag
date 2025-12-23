@@ -62,6 +62,40 @@ ollama serve
    - Part 1: Ingestion — build or load the Chroma DB
    - Part 2: Retrieval & QA — query the DB with `ask_rag(...)`
 
+## Prerequisites — Ollama setup
+
+Before running the notebook, ensure the Ollama local inference service is installed and a model is available.
+
+1. Install Ollama (macOS):
+
+```bash
+# Option A: Homebrew (if you use Homebrew)
+brew install ollama
+
+# Option B: Visit the official installer and docs:
+# https://ollama.ai/docs
+```
+
+2. Start the Ollama service in a separate terminal:
+
+```bash
+ollama serve
+```
+
+3. Pull a model (example: `llama3`) so it's available locally:
+
+```bash
+ollama pull llama3
+```
+
+4. Verify the model is ready by running the notebook connectivity cell or by using the Ollama CLI per the documentation. Ensure the model name in the notebook (variable `LLM_MODEL`) matches the pulled model.
+
+Troubleshooting tips:
+
+- Allow sufficient disk space for model downloads (models can be several GBs).
+- If the server fails to start, check logs in the terminal where `ollama serve` ran and verify any port/firewall settings.
+- See Ollama docs for platform-specific installers or troubleshooting: https://ollama.ai/docs
+
 ## Key Notebook Highlights
 
 - `load_and_index_data(folder_path)`:
